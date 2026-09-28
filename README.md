@@ -45,10 +45,4 @@ npm run build
 npm run preview
 ```
 
-## Deployment
 
-Deployed at [YOUR_LIVE_LINK](YOUR_LIVE_LINK). Any push to `main` can trigger a redeploy, depending on your hosting setup.
-
-## Built With
-
-Created with [Lovable](https://lovable.dev) and continued locally.
