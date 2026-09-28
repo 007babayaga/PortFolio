@@ -22,9 +22,6 @@ Showcase Masterpiece is a single-page portfolio built to make a strong first imp
 - Tailwind CSS
 - shadcn/ui
 
-## Screenshots
-
-<!-- Add screenshots to /public or /docs and reference them here -->
 ![Home page](./docs/home.png)
 
 ## Getting Started
