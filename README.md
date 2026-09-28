@@ -2,7 +2,7 @@
 
 A modern, responsive personal portfolio that highlights my projects, skills, and experience in one polished, fast-loading site.
 
-🔗 **Live Demo:** [YOUR_LIVE_LINK](https://port-folio-nine-indol.vercel.app/)
+🔗 **Live Demo:** [https://port-folio-nine-indol.vercel.app/](https://port-folio-nine-indol.vercel.app/)
 
 ## Overview
 
