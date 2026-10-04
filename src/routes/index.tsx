@@ -1,4 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
+import {
+  Atom,
+  Braces,
+  ChartNoAxesCombined,
+  Coffee,
+  Code2,
+  Database,
+  GitBranch,
+  Github,
+  Layers3,
+  PanelsTopLeft,
+  Route as RouteIcon,
+  Send,
+  Server,
+  Smartphone,
+  Terminal as TerminalIcon,
+  Workflow,
+  type LucideIcon,
+} from "lucide-react";
 
 const TITLE = "Rajat Pratap | Backend & Data Engineer";
 const DESCRIPTION =
@@ -19,12 +38,12 @@ export const Route = createFileRoute("/")({
 });
 
 const nav = [
-  { n: "01", label: "terminal", href: "#top", delay: "rise [animation-delay:120ms]" },
-  { n: "02", label: "experience", href: "#experience", delay: "rise [animation-delay:160ms]" },
-  { n: "03", label: "projects", href: "#projects", delay: "rise [animation-delay:200ms]" },
-  { n: "04", label: "stack", href: "#skills", delay: "rise [animation-delay:240ms]" },
-  { n: "05", label: "history", href: "#education", delay: "rise [animation-delay:280ms]" },
-  { n: "06", label: "contact", href: "#contact", delay: "rise [animation-delay:320ms]" },
+  { label: "Home", href: "#top" },
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Languages", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const experience = [
@@ -113,6 +132,33 @@ const skillGroups = [
   },
 ];
 
+const skillIcons: Record<string, LucideIcon> = {
+  Java: Coffee,
+  C: Code2,
+  Python: Braces,
+  JavaScript: Code2,
+  "SQL / PL-SQL": Database,
+  NoSQL: Database,
+  PySpark: Workflow,
+  MySQL: Database,
+  "Power BI": ChartNoAxesCombined,
+  DAX: ChartNoAxesCombined,
+  ETL: GitBranch,
+  "Unix Shell": TerminalIcon,
+  "Node.js": Server,
+  Express: RouteIcon,
+  MongoDB: Database,
+  React: Atom,
+  Redux: Layers3,
+  REST: RouteIcon,
+  Git: GitBranch,
+  GitHub: Github,
+  Postman: Send,
+  "VS Code": PanelsTopLeft,
+  "IntelliJ IDEA": Code2,
+  "Android Studio": Smartphone,
+};
+
 const coursework = [
   "Data Structures & Algorithms",
   "Operating Systems",
@@ -147,6 +193,21 @@ const contact = [
   { label: "leetcode", value: "leetcode.com/u/rajarpratap_00", href: "https://leetcode.com/u/rajarpratap_00/" },
   { label: "resume", value: "download pdf", href: "/rajat-pratap-resume.pdf" },
 ];
+
+function SkillChip({ label }: { label: string }) {
+  const Icon = skillIcons[label] ?? Code2;
+
+  return (
+    <span className="stack-chip group inline-flex items-center gap-2 border border-border bg-secondary/60 px-3 py-1.5 font-mono text-xs uppercase tracking-[0.2em] text-foreground/80">
+      <Icon
+        aria-hidden="true"
+        className="size-3.5 shrink-0 text-primary/80 transition-transform duration-200 group-hover:scale-110"
+        strokeWidth={1.8}
+      />
+      {label}
+    </span>
+  );
+}
 
 function SectionHeading({ n, label }: { n: string; label: string }) {
   return (
@@ -218,56 +279,43 @@ function Index() {
         aria-hidden="true"
       ></div>
 
-      {/* Mobile top bar */}
-      <header className="relative z-10 flex items-center justify-between border-b border-border px-6 py-4 lg:hidden">
-        <div className="flex items-center gap-3">
-          <span className="flex size-7 rotate-45 items-center justify-center bg-primary">
-            <span className="-rotate-45 font-mono text-[10px] font-bold text-primary-foreground">
-              RP
-            </span>
-          </span>
-          <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">
-            RAJAT PRATAP
-          </span>
-        </div>
-        <a
-          href="#contact"
-          className="rounded-md bg-primary px-4 py-2 font-mono text-xs font-bold text-primary-foreground transition-colors hover:bg-primary/85"
-        >
-          GET_IN_TOUCH
-        </a>
-      </header>
-
-      <div className="relative z-10 mx-auto flex max-w-6xl px-4 sm:px-8">
-        {/* Sticky technical rail */}
-        <aside className="hidden shrink-0 lg:block">
-          <div className="sticky top-0 flex h-screen w-24 flex-col items-center border-r border-border py-6">
-            <div className="rise flex h-12 w-12 shrink-0 rotate-45 items-center justify-center overflow-hidden bg-primary shadow-[0_0_30px_rgba(245,158,11,0.25)]">
-              <span className="-rotate-45 font-mono text-[10px] font-black leading-none tracking-[-0.12em] text-primary-foreground">
-                RP
+      <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
+        <div className="mx-auto max-w-6xl px-4 sm:px-8">
+          <div className="flex min-h-16 items-center gap-4">
+            <a href="#top" className="flex shrink-0 items-center gap-3" aria-label="Rajat Pratap, home">
+              <span className="flex size-8 rotate-45 items-center justify-center bg-primary shadow-[0_0_18px_rgba(245,158,11,0.18)]">
+                <span className="-rotate-45 font-mono text-[10px] font-black leading-none tracking-[-0.12em] text-primary-foreground">
+                  RP
+                </span>
               </span>
-            </div>
-            <nav className="mt-12 flex flex-col items-center gap-7">
+              <span className="hidden font-mono text-xs tracking-[0.16em] text-foreground/80 sm:inline">
+                RAJAT PRATAP
+              </span>
+            </a>
+            <nav
+              aria-label="Main navigation"
+              className="flex min-w-0 flex-1 items-center gap-1 overflow-x-auto py-4 md:justify-center"
+            >
               {nav.map((item) => (
                 <a
-                  key={item.n}
+                  key={item.label}
                   href={item.href}
-                  className={`font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors duration-150 hover:text-primary [writing-mode:vertical-lr] [rotate:180deg] ${item.delay}`}
+                  className="shrink-0 px-2 py-2 font-mono text-[10px] uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary focus-visible:text-primary focus-visible:outline-none sm:px-3 sm:text-[11px]"
                 >
-                  <span className="text-primary/70">{item.n}.</span> {item.label}
+                  {item.label}
                 </a>
               ))}
             </nav>
-            <div className="mt-auto flex flex-col items-center gap-2 pb-1">
+            <span className="hidden shrink-0 items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-muted-foreground xl:flex">
               <span className="size-1.5 animate-pulse rounded-full bg-primary"></span>
-              <span className="font-mono text-[10px] text-muted-foreground/60 [writing-mode:vertical-lr] [rotate:180deg]">
-                open to backend / data roles
-              </span>
-            </div>
+              Open to work
+            </span>
           </div>
-        </aside>
+        </div>
+      </header>
 
-        <main className="min-w-0 flex-1 py-12 lg:pl-10">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-8">
+        <main className="min-w-0 py-12">
           {/* Hero */}
           <section id="top" className="space-y-8">
             <div className="rise inline-flex items-center gap-3 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 font-mono text-xs text-primary [animation-delay:80ms]">
@@ -309,7 +357,7 @@ function Index() {
             </div>
           </section>
 
-          <section className="mt-16 border border-border bg-card/60 p-6 sm:p-8">
+          <section id="about" className="mt-16 scroll-mt-32 border border-border bg-card/60 p-6 sm:p-8">
             <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
               about
             </div>
@@ -374,7 +422,7 @@ function Index() {
           </section>
 
           {/* Experience */}
-          <section id="experience" className="mt-28">
+          <section id="experience" className="mt-28 scroll-mt-28">
             <SectionHeading n="02" label="experience" />
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {experience.map((job) => (
@@ -406,7 +454,7 @@ function Index() {
           </section>
 
           {/* Projects */}
-          <section id="projects" className="mt-28">
+          <section id="projects" className="mt-28 scroll-mt-28">
             <SectionHeading n="03" label="projects" />
             <div className="mt-8 grid gap-6">
               {projects.map((project) => (
@@ -471,7 +519,7 @@ function Index() {
           </section>
 
           {/* Skills + Education */}
-          <section id="skills" className="mt-28 grid gap-10 lg:grid-cols-12">
+          <section id="skills" className="mt-28 scroll-mt-28 grid gap-10 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <SectionHeading n="04" label="stack" />
               <div className="mt-8 space-y-6">
@@ -482,12 +530,7 @@ function Index() {
                     </div>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {group.items.map((item) => (
-                        <span
-                          key={item}
-                          className="chip-hover border border-border bg-secondary/60 px-3 py-1.5 font-mono text-xs uppercase tracking-[0.2em] text-foreground/80"
-                        >
-                          {item}
-                        </span>
+                        <SkillChip key={item} label={item} />
                       ))}
                     </div>
                   </div>
@@ -550,7 +593,7 @@ function Index() {
           </section>
 
           {/* Contact */}
-          <section id="contact" className="mt-28">
+          <section id="contact" className="mt-28 scroll-mt-28">
             <SectionHeading n="06" label="contact" />
             <div className="rise mt-8 border border-border bg-card p-6 [animation-delay:120ms] sm:p-10">
               <h2 className="text-3xl font-bold tracking-tight text-balance text-white sm:text-4xl lg:text-[2.7rem] lg:leading-tight">

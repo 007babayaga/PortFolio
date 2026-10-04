@@ -163,6 +163,17 @@
   }
 }
 
+@keyframes stackReveal {
+  from {
+    opacity: 0;
+    transform: translateY(9px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .rise {
   animation: rise 0.5s cubic-bezier(0.32, 0.72, 0, 1) both;
 }
@@ -186,7 +197,8 @@
   animation: flow 2.4s linear infinite;
 }
 
-.chip-hover {
+.stack-chip {
+  animation: stackReveal 0.45s cubic-bezier(0.2, 0.75, 0.25, 1) both;
   transition:
     border-color 180ms ease,
     transform 180ms ease,
@@ -194,11 +206,31 @@
     color 180ms ease;
 }
 
-.chip-hover:hover {
+.stack-chip:nth-child(2) {
+  animation-delay: 50ms;
+}
+
+.stack-chip:nth-child(3) {
+  animation-delay: 100ms;
+}
+
+.stack-chip:nth-child(4) {
+  animation-delay: 150ms;
+}
+
+.stack-chip:nth-child(5) {
+  animation-delay: 200ms;
+}
+
+.stack-chip:nth-child(6) {
+  animation-delay: 250ms;
+}
+
+.stack-chip:hover {
   border-color: rgba(245, 158, 11, 0.5);
   color: rgba(245, 158, 11, 0.95);
-  transform: translateY(-1px);
-  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.15);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.14);
 }
 
 @media (prefers-reduced-motion: reduce) {
