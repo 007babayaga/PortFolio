@@ -1,24 +1,45 @@
 # Showcase Masterpiece
 
-Make me a very cool portfoilio
+A modern, responsive personal portfolio that highlights my projects, skills, and experience in one polished, fast-loading site.
 
-This project was built with [Lovable](https://lovable.dev).
+🔗 **Live Demo:** [https://port-folio-nine-indol.vercel.app/](https://port-folio-nine-indol.vercel.app/)
 
-## Build with Lovable
+## Overview
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/37e3e618-b163-4aa2-88e4-af3d8742bbcd).
+Showcase Masterpiece is a single-page portfolio built to make a strong first impression. It presents who I am, what I've built, and how to reach me, with a clean layout that works across desktop, tablet, and mobile.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## Features
 
-## Development
+- Responsive design for all screen sizes
+- Sections for About, Projects, Skills, and Contact
+- Smooth navigation and polished UI
+- Fast build and dev experience with Vite
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Tech Stack
+
+- React + TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui
+
+![Home page](./docs/home.png)
+
+## Getting Started
+
+**Prerequisites:** Node.js (LTS) and npm
 
 ```sh
 git clone <this-repository-url>
 cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
+
+## Build for Production
+
+```sh
+npm run build
+npm run preview
+```
+
+
